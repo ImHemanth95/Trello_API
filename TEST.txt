@@ -1,0 +1,93 @@
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 1.55 KiB | 7.00 KiB/s, done.
+From https://github.com/ImHemanth95/Trello_API
+   c64912b..dbd7a78  master     -> origin/master
+CONFLICT (modify/delete): adasd.txt.txt deleted in HEAD and modified in dbd7a78f7ef814191835ee52cf6ca6930b272738. Version dbd7a78f7ef814191835ee52cf6ca6930b272738 of adasd.txt.txt left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master|MERGING)
+$ git push -u origin master
+To https://github.com/ImHemanth95/Trello_API.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/ImHemanth95/Trello_API.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master|MERGING)
+$ git pull
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        deleted by us:   adasd.txt.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master|MERGING)
+$ git add .
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        new file:   adasd.txt.txt
+
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master|MERGING)
+$ git commit -m "modify"
+[master ee42a1d] modify
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git push -u origin second
+error: src refspec second does not match any
+error: failed to push some refs to 'https://github.com/ImHemanth95/Trello_API.git'
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git push -u origin master
+Enumerating objects: 12, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 1.54 KiB | 525.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/ImHemanth95/Trello_API.git
+   dbd7a78..ee42a1d  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$
