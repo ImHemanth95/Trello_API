@@ -23,7 +23,12 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"console.log('${pm.info.requestName} -From the request script');",
+							"console.log(`${pm.info.requestName} -From the request script`);",
+							"",
+							"",
+							"",
+							"",
+							"",
 							"",
 							""
 						],
@@ -132,6 +137,16 @@
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
+							"console.log(`${pm.info.requestName}-From the request script`);",
+							"",
+							"console.log(response);",
+							"console.log(response.boardID[0][1]);",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
 							"",
 							"",
 							""
@@ -144,7 +159,7 @@
 					"script": {
 						"id": "0aa513f8-7f57-40e9-aca6-28bd3b56b05d",
 						"exec": [
-							"console.log('${pm.info.requestName} -From the request script');\r",
+							"console.log(`${pm.info.requestName}-From the request script`);\r",
 							"\r",
 							"\r",
 							""
@@ -428,16 +443,87 @@
 			"response": []
 		},
 		{
+			"name": "GET_ALL_BOARDS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "300acad4-afaa-4d99-a07a-2e8d4445101b",
+						"exec": [
+							"\r",
+							"const response = pm.response.json();\r",
+							"console.log(response.idBoards[0]);\r",
+							"\r",
+							"\r",
+							"// Get the first object (element) from jsonData array\r",
+							"const firstBoard = response.shift();\r",
+							"\r",
+							"if (firstBoard) {\r",
+							"    // Print the value\r",
+							"    console.log(firstBoard.id);\r",
+							"    \r",
+							"    // Set the variable boardId with the first board id from the list retrieved\r",
+							"    pm.environment.set(\"boardId\", firstBoard.id);\r",
+							"    \r",
+							"    // Set the next request to the delete board\r",
+							"    postman.setNextRequest(pm.environment.get(\"deleteBoardRequestId\"));\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "77ed5d23-8bd3-4682-8b8f-423e7990a26e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/1/members/hemanthgowda9/boards?key={{trelloKey}}&token={{trelloToken}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"1",
+						"members",
+						"hemanthgowda9",
+						"boards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{trelloKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{trelloToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Board",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "09d3cbe8-d453-46f8-aa6d-daa3a037d2d5",
+						"id": "c3719baf-9ccb-4027-bb3c-50d6f7769389",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"\r",
+							"pm.environment.set(\"deleteBoardRequestId\", pm.info.requestId);\r",
 							"\r",
 							"\r",
 							""
@@ -448,7 +534,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bf4abf2d-5ca6-4b7f-aeb5-808734168eb2",
+						"id": "2561e404-a6e9-4015-813c-b788e57f940c",
 						"exec": [
 							"console.log('${pm.info.requestName} -From the request script');\r",
 							""
@@ -505,7 +591,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "66f3b2cb-878d-4091-9507-58196fff4c92",
+						"id": "424dd495-8e7b-4d48-ae29-80444b16ff90",
 						"exec": [
 							"//this is to set the dynamic board number after each creation of the board",
 							"",
@@ -552,7 +638,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9eafc028-b6e5-4671-83bd-c87fb9098afa",
+						"id": "4cae0996-5051-44b5-a9b6-7fda26a37010",
 						"exec": [
 							"pm.test(\"Status code is 404\", function () {\r",
 							"    pm.response.to.have.status(404);\r",
