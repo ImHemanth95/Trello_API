@@ -1,0 +1,72 @@
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ ls
+adasd.txt.txt                       Trello_API.postman_environment.json
+Trello_API.postman_collection.json
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        adasd.txt.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git add .
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   adasd.txt.txt
+
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git commit -m "initial commit"
+[master c64912b] initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 adasd.txt.txt
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git push orign master
+fatal: 'orign' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git push -u origin master
+Logon failed, use ctrl+c to cancel basic credential prompt.
+
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git push -u origin master
+Logon failed, use ctrl+c to cancel basic credential prompt.
+error: unable to read askpass response from 'C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass'
+Username for 'https://github.com': ImHemanth95
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/ImHemanth95/Trello_API.git/'
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$ git push -u origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 268 bytes | 134.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/ImHemanth95/Trello_API.git
+   54abd7e..c64912b  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Administrator@Lenovo-PC MINGW64 ~/Desktop/repo/Trello_API (master)
+$
